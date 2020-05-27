@@ -1,9 +1,9 @@
 <template>
     <div class="navbar">
-        <hamburger :is-active="sidebar.opened" class="hamburger-container" @toggleClick="toggleSideBar" />
+        <!-- <hamburger :is-active="sidebar.opened" class="hamburger-container" @toggleClick="toggleSideBar" />
 
-        <breadcrumb class="breadcrumb-container" />
-
+        <breadcrumb class="breadcrumb-container" /> -->
+        <logo />
         <div class="right-menu">
             <el-dropdown class="avatar-container" trigger="click">
                 <div class="avatar-wrapper">
@@ -33,13 +33,15 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import Breadcrumb from '@/components/Breadcrumb'
-import Hamburger from '@/components/Hamburger'
+// import Breadcrumb from '@/components/Breadcrumb'
+// import Hamburger from '@/components/Hamburger'
+import Logo from '@/layout/components/Sidebar/Logo'
 
 export default {
     components: {
-        Breadcrumb,
-        Hamburger
+        // Breadcrumb,
+        Logo
+        // Hamburger
     },
     computed: {
         ...mapGetters([
@@ -60,8 +62,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "~@/styles/variables.scss";
+
 .navbar {
-  height: 50px;
+  height: $headerHeight;
   overflow: hidden;
   position: relative;
   background: #fff;

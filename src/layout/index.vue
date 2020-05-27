@@ -1,19 +1,30 @@
 <template>
     <div :class="classObj" class="app-wrapper">
-        <div v-if="device==='mobile'&&sidebar.opened" class="drawer-bg" @click="handleClickOutside" />
-        <sidebar class="sidebar-container" />
-        <div class="main-container">
-            <div :class="{'fixed-header':fixedHeader}">
-                <navbar />
-            </div>
-            <app-main />
-        </div>
+        <el-container>
+            <el-header :height="headerHeight">
+                <div :class="{'fixed-header':fixedHeader}">
+                    <navbar />
+                </div>
+            </el-header>
+            <el-container>
+                <!-- <el-aside width="210px"> -->
+                <!-- </el-aside> -->
+                <el-main>
+                    <div v-if="device==='mobile'&&sidebar.opened" class="drawer-bg" @click="handleClickOutside" />
+                    <sidebar class="sidebar-container" />
+                    <div class="main-container">
+                        <app-main />
+                    </div>
+                </el-main>
+            </el-container>
+        </el-container>
     </div>
 </template>
 
 <script>
 import { Navbar, Sidebar, AppMain } from './components'
 import ResizeMixin from './mixin/ResizeHandler'
+import Variables from '@/styles/variables.scss'
 
 export default {
     name: 'Layout',
@@ -40,6 +51,9 @@ export default {
                 withoutAnimation: this.sidebar.withoutAnimation,
                 mobile: this.device === 'mobile'
             }
+        },
+        headerHeight() {
+            return Variables.headerHeight
         }
     },
     methods: {
@@ -62,6 +76,13 @@ export default {
     &.mobile.openSidebar{
       position: fixed;
       top: 0;
+    }
+    & .el-header{
+        padding: 0;
+    }
+    & .el-main{
+        padding: 0;
+        background-color: #F7FAF8;
     }
   }
   .drawer-bg {
