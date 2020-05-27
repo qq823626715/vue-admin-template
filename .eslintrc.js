@@ -25,11 +25,19 @@ module.exports = {
     "vue/multiline-html-element-content-newline":"off",
     "vue/name-property-casing": ["error", "PascalCase"],
     "vue/no-v-html": "off",
+    "vue/html-indent": ["error", 4, {
+      "attribute": 1,
+      "baseIndent": 1,
+      "closeBracket": 0,
+      "alignAttributesVertically": true,
+      "ignores": []
+    }],
     'accessor-pairs': 2,
     'arrow-spacing': [2, {
       'before': true,
       'after': true
     }],
+    'array-bracket-newline': ["error", "consistent"],
     'block-spacing': [2, 'always'],
     'brace-style': [2, '1tbs', {
       'allowSingleLine': true
@@ -53,8 +61,8 @@ module.exports = {
       'after': true
     }],
     'handle-callback-err': [2, '^(err|error)$'],
-    'indent': [2, 2, {
-      'SwitchCase': 1
+    'indent': [2, 4, {
+      'SwitchCase': 2
     }],
     'jsx-quotes': [2, 'prefer-single'],
     'key-spacing': [2, {
