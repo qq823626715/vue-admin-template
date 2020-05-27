@@ -51,7 +51,7 @@ export const constantRoutes = [
             path: 'dashboard',
             name: 'Dashboard',
             component: () => import('@/views/dashboard/index'),
-            meta: { title: 'Dashboard', icon: 'dashboard' }
+            meta: { title: '首页', icon: 'dashboard' }
         }]
     },
 
@@ -162,7 +162,7 @@ export const constantRoutes = [
     {
         path: '/product',
         component: Layout,
-        redirect: '/product/productmanager',
+        redirect: 'noRedirect',
         alwaysShow: true,
         name: 'product',
         meta: {
@@ -173,6 +173,7 @@ export const constantRoutes = [
             {
                 path: 'productmanager',
                 name: 'productmanager',
+                redirect: 'noRedirect',
                 component: () => import('@/views/product/productmanager/index'),
                 meta: { title: '商品管理' },
                 children: [
