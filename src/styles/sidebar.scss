@@ -61,6 +61,9 @@
       border: none;
       height: 100%;
       width: 100% !important;
+      & .el-menu-item.is-active{
+        background-image: linear-gradient(to right, $menuActiveBgL , $menuActiveBgR) !important;
+      }
     }
 
     // menu hover
@@ -68,6 +71,7 @@
     .el-submenu__title {
       &:hover {
         background-color: $menuHover !important;
+        background-image: linear-gradient(to right, $menuActiveBgL , $menuActiveBgR) !important;
       }
     }
 
@@ -82,6 +86,10 @@
 
       &:hover {
         background-color: $subMenuHover !important;
+      }
+      &.is-active{
+        color: $subMenuActiveText !important;
+        background-color: $subActiveMenuBg !important;
       }
     }
   }
