@@ -159,8 +159,58 @@ export const constantRoutes = [
         ]
     },
 
+    {
+        path: '/product',
+        component: Layout,
+        redirect: '/product/productmanager',
+        alwaysShow: true,
+        name: 'product',
+        meta: {
+            title: '商品管理',
+            icon: 'example'
+        },
+        children: [
+            {
+                path: 'productmanager',
+                name: 'productmanager',
+                component: () => import('@/views/product/productmanager/index'),
+                meta: { title: '商品管理' },
+                children: [
+                    {
+                        path: 'list',
+                        component: () => import('@/views/product/productmanager/list/index'),
+                        name: 'list',
+                        meta: { title: '商品列表' }
+                    },
+                    {
+                        path: 'recycled',
+                        component: () => import('@/views/product/productmanager/recycled/index'),
+                        name: 'recycled',
+                        meta: { title: '商品回收站' }
+                    },
+                    {
+                        path: 'drafts',
+                        component: () => import('@/views/product/productmanager/drafts/index'),
+                        name: 'drafts',
+                        meta: { title: '商品草稿箱' }
+                    }
+                ]
+            }
+            // {
+            //     path: 'classmanager',
+            //     name: 'classmanager',
+            //     component: () => import('@/views/product/classmanager/index'),
+            //     meta: { title: '分类管理', icon: 'tree' }
+            // }
+        ]
+    },
+
     // 404 page must be placed at the end !!!
     { path: '*', redirect: '/404', hidden: true }
+]
+
+export const asyncRoutes = [
+
 ]
 
 const createRouter = () => new Router({
