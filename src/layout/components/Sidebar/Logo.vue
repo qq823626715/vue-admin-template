@@ -6,7 +6,7 @@
                 <h1 v-else class="sidebar-title">{{ title }} </h1>
             </router-link> -->
             <router-link key="expand" class="sidebar-logo-link" to="/">
-                <img v-if="logo" :src="logo" class="sidebar-logo">
+                <img v-if="logo" src="@/assets/404_images/logo.png" class="sidebar-logo">
                 <h1 class="sidebar-title">{{ title }} </h1>
             </router-link>
         </transition>
@@ -24,8 +24,8 @@ export default {
     },
     data() {
         return {
-            title: 'Vue Admin Template',
-            logo: '../../../src/assets/404_images/logo.png'
+            title: '哒配总部后台管理系统',
+            logo: 'src/assets/404_images/logo.png'
         }
     }
 }
@@ -45,7 +45,7 @@ export default {
 
 .sidebar-logo-container {
     position: relative;
-    width: 270px;
+    width: 340px;
     height: $headerHeight;
     line-height: $headerHeight;
     background: #FFFFFF;
@@ -58,8 +58,8 @@ export default {
         width: 100%;
 
         & .sidebar-logo {
-            width: 32px;
-            height: 32px;
+            width: 40px;
+            height: 40px;
             vertical-align: middle;
             margin-right: 12px;
         }
@@ -70,7 +70,7 @@ export default {
             color: #323232;
             font-weight: 600;
             line-height: 50px;
-            font-size: 14px;
+            font-size: 22px;
             font-family: Avenir, Helvetica Neue, Arial, Helvetica, sans-serif;
             vertical-align: middle;
         }

@@ -11,11 +11,10 @@
     transition: width 0.28s;
     width: $sideBarWidth !important;
     background-color: $menuBg;
-    height: 100%;
-    // position: fixed;
-    float: left;
+    height: calc(100vh - $headerHeight);
+    position: fixed;
     font-size: 0px;
-    top: 0;
+    top: $headerHeight;
     bottom: 0;
     left: 0;
     z-index: 1001;

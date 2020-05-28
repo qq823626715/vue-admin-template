@@ -1,6 +1,7 @@
 <template>
-    <div :class="{'has-logo':showLogo}">
-        <logo v-if="showLogo" :collapse="isCollapse" />
+    <!-- <div :class="{'has-logo':showLogo}"> -->
+    <div>
+        <!-- <logo v-if="showLogo" :collapse="isCollapse" /> -->
         <el-scrollbar wrap-class="scrollbar-wrapper">
             <el-menu
                 :default-active="activeMenu"
@@ -14,18 +15,24 @@
             >
                 <sidebar-item v-for="route in routes" :key="route.path" :item="route" :base-path="route.path" />
             </el-menu>
+            <hamburger :is-active="sidebar.opened" class="hamburger-container" @toggleClick="toggleSideBar" />
         </el-scrollbar>
     </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
-import Logo from './Logo'
+import Hamburger from '@/components/Hamburger'
+// import Logo from './Logo'
 import SidebarItem from './SidebarItem'
 import variables from '@/styles/variables.scss'
 
 export default {
-    components: { SidebarItem, Logo },
+    components: {
+        SidebarItem,
+        // Logo,
+        Hamburger
+    },
     computed: {
         ...mapGetters([
             'sidebar'
@@ -42,15 +49,37 @@ export default {
             }
             return path
         },
-        showLogo() {
-            return this.$store.state.settings.sidebarLogo
-        },
+        // showLogo() {
+        //     return this.$store.state.settings.sidebarLogo
+        // },
         variables() {
             return variables
         },
         isCollapse() {
             return !this.sidebar.opened
         }
+    },
+    methods: {
+        toggleSideBar() {
+            this.$store.dispatch('app/toggleSideBar')
+        }
     }
 }
 </script>
+<style lang="scss" scoped>
+.hamburger-container {
+    line-height: 50px;
+    // height: 20px;
+    // width: 20px;
+    position: absolute;
+    left: 2px;
+    bottom: 30px;
+    cursor: pointer;
+    transition: background .3s;
+    -webkit-tap-highlight-color:transparent;
+
+    &:hover {
+        background: rgba(0, 0, 0, .025)
+    }
+}
+</style>

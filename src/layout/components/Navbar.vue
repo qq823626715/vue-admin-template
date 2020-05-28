@@ -5,7 +5,16 @@
         <breadcrumb class="breadcrumb-container" /> -->
         <logo />
         <div class="right-menu">
-            <el-dropdown class="avatar-container" trigger="click">
+            <div class="avatar-container">
+                <div class="avatar-wrapper">
+                    <div class="user-box">
+                        <el-avatar :src="avatar+'?imageView2/1/w/80/h/80'" :size="40" />
+                        <span class="user-name">某某某</span>
+                    </div>
+                    <el-button type="text" size="medium" icon="el-icon-switch-button" @click.native="logout">退出登录</el-button>
+                </div>
+            </div>
+            <!-- <el-dropdown class="avatar-container" trigger="click">
                 <div class="avatar-wrapper">
                     <img :src="avatar+'?imageView2/1/w/80/h/80'" class="user-avatar">
                     <i class="el-icon-caret-bottom" />
@@ -26,7 +35,7 @@
                         <span style="display:block;">Log Out</span>
                     </el-dropdown-item>
                 </el-dropdown-menu>
-            </el-dropdown>
+            </el-dropdown> -->
         </div>
     </div>
 </template>
@@ -65,79 +74,85 @@ export default {
 @import "~@/styles/variables.scss";
 
 .navbar {
-  height: $headerHeight;
-  overflow: hidden;
-  position: relative;
-  background: #fff;
-  box-shadow: 0 1px 4px rgba(0,21,41,.08);
+    height: $headerHeight;
+    overflow: hidden;
+    position: relative;
+    background: #fff;
+    box-shadow: 0 1px 4px rgba(0,21,41,.08);
 
-  .hamburger-container {
-    line-height: 46px;
-    height: 100%;
-    float: left;
-    cursor: pointer;
-    transition: background .3s;
-    -webkit-tap-highlight-color:transparent;
+    // .hamburger-container {
+    //     line-height: 46px;
+    //     height: 100%;
+    //     float: left;
+    //     cursor: pointer;
+    //     transition: background .3s;
+    //     -webkit-tap-highlight-color:transparent;
 
-    &:hover {
-      background: rgba(0, 0, 0, .025)
-    }
-  }
+    //     &:hover {
+    //         background: rgba(0, 0, 0, .025)
+    //     }
+    // }
 
-  .breadcrumb-container {
-    float: left;
-  }
-
-  .right-menu {
-    float: right;
-    height: 100%;
-    line-height: 50px;
-
-    &:focus {
-      outline: none;
+    .breadcrumb-container {
+        float: left;
     }
 
-    .right-menu-item {
-      display: inline-block;
-      padding: 0 8px;
-      height: 100%;
-      font-size: 18px;
-      color: #5a5e66;
-      vertical-align: text-bottom;
+    .right-menu {
+        float: right;
+        height: 100%;
+        line-height: 50px;
+        vertical-align: middle;
 
-      &.hover-effect {
-        cursor: pointer;
-        transition: background .3s;
-
-        &:hover {
-          background: rgba(0, 0, 0, .025)
-        }
-      }
-    }
-
-    .avatar-container {
-      margin-right: 30px;
-
-      .avatar-wrapper {
-        margin-top: 5px;
-        position: relative;
-
-        .user-avatar {
-          cursor: pointer;
-          width: 40px;
-          height: 40px;
-          border-radius: 10px;
+        &:focus {
+            outline: none;
         }
 
-        .el-icon-caret-bottom {
-          cursor: pointer;
-          position: absolute;
-          right: -20px;
-          top: 25px;
-          font-size: 12px;
+        .right-menu-item {
+            display: inline-block;
+            padding: 0 8px;
+            height: 100%;
+            font-size: 18px;
+            color: #5a5e66;
+            vertical-align: text-bottom;
+
+            &.hover-effect {
+                cursor: pointer;
+                transition: background .3s;
+
+                &:hover {
+                    background: rgba(0, 0, 0, .025)
+                }
+            }
         }
-      }
+
+        .avatar-container {
+            margin-right: 40px;
+
+            .avatar-wrapper {
+                position: relative;
+                height: $headerHeight;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+
+                .user-box{
+                    margin-right: 30px;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    color: #808080;
+                    font-size: 16px;
+                    .user-name{
+                        margin-left: 10px;
+                        cursor: pointer;
+                    }
+                }
+                .el-button--text{
+                    color: #808080;
+                    font-size: 16px;
+                }
+            }
+        }
     }
-  }
 }
 </style>

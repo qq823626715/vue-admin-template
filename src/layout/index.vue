@@ -48,8 +48,8 @@ export default {
             return {
                 hideSidebar: !this.sidebar.opened,
                 openSidebar: this.sidebar.opened,
-                withoutAnimation: this.sidebar.withoutAnimation,
-                mobile: this.device === 'mobile'
+                withoutAnimation: this.sidebar.withoutAnimation
+                // mobile: this.device === 'mobile' //去除手机适配
             }
         },
         headerHeight() {
@@ -73,16 +73,22 @@ export default {
     position: relative;
     height: 100%;
     width: 100%;
+
     &.mobile.openSidebar{
       position: fixed;
       top: 0;
     }
     & .el-header{
         padding: 0;
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
     }
     & .el-main{
         padding: 0;
         background-color: #F7FAF8;
+        margin-top: $headerHeight;
     }
   }
   .drawer-bg {
