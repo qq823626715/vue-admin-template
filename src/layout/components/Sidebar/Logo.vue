@@ -6,7 +6,7 @@
                 <h1 v-else class="sidebar-title">{{ title }} </h1>
             </router-link> -->
             <router-link key="expand" class="sidebar-logo-link" to="/">
-                <img v-if="logo" src="@/assets/404_images/logo.png" class="sidebar-logo">
+                <img v-if="logo" src="@/assets/logo/logo.png" class="sidebar-logo">
                 <h1 class="sidebar-title">{{ title }} </h1>
             </router-link>
         </transition>
@@ -25,7 +25,7 @@ export default {
     data() {
         return {
             title: '哒配总部后台管理系统',
-            logo: 'src/assets/404_images/logo.png'
+            logo: './src/assets/404_images/logo.png'
         }
     }
 }

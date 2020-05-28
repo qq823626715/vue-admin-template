@@ -9,7 +9,7 @@
                 <div class="avatar-wrapper">
                     <div class="user-box">
                         <el-avatar :src="avatar+'?imageView2/1/w/80/h/80'" :size="40" />
-                        <span class="user-name">某某某</span>
+                        <span class="user-name">{{ name }}</span>
                     </div>
                     <el-button type="text" size="medium" icon="el-icon-switch-button" @click.native="logout">退出登录</el-button>
                 </div>
@@ -55,6 +55,7 @@ export default {
     computed: {
         ...mapGetters([
             'sidebar',
+            'name',
             'avatar'
         ])
     },
